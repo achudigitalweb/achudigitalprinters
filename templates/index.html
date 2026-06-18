@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Achu Digital Printers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f5f5;
+}
+
+.header{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.tagline{
+    color:#ffcc00;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    background:#111;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <h1>Achu Digital Printers</h1>
+    <h2 class="tagline">Premium Digital Printing with Easy Online Ordering</h2>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>Place Your Order</h2>
+
+
+<form action="/submit" method="POST" enctype="multipart/form-data">
+
+<input type="text"
+       name="name"
+       placeholder="Customer Name"
+       required>
+
+<input type="tel"
+       name="phone"
+       placeholder="Phone Number"
+       required>
+
+<input type="email"
+       name="email"
+       placeholder="Email"
+       required>
+
+<select name="job_type" id="jobType" required onchange="showCustomJob()">
+    <option value="">Select Job Type</option>
+    <option>Visiting Card</option>
+    <option>Wedding Invitation</option>
+    <option>Birthday Invitation</option>
+    <option>Flyer</option>
+    <option>Brochure</option>
+    <option>Poster</option>
+    <option>Banner</option>
+    <option>Sticker</option>
+    <option>Booklet</option>
+    <option value="Custom">Custom Job</option>
+</select>
+
+<div id="customJobDiv" style="display:none;">
+    <input type="text"
+           name="custom_job"
+           placeholder="Describe your custom job">
+</div>
+
+<select name="paper_size" required>
+    <option value="">Select Paper Size</option>
+    <option>13 × 26</option>
+    <option>13 × 19</option>
+    <option>12 × 18</option>
+    <option>A3</option>
+    <option>A4</option>
+    <option>A5</option>
+</select>
+
+<select name="paper_type" required>
+    <option value="">Select Paper Type</option>
+    <option>Lenin White</option>
+    <option>300 GSM</option>
+    <option>220 GSM</option>
+    <option>170 GSM</option>
+    <option>130 GSM</option>
+    <option>100 GSM</option>
+    <option>80 GSM</option>
+    <option>70 GSM</option>
+    <option>Needle Point</option>
+    <option>Criss Cross</option>
+    <option>All Texture Boards</option>
+    <option>All Synthetic Sheets</option>
+    <option>200 Micron</option>
+    <option>125 Micron</option>
+</select>
+
+<input type="number"
+       name="quantity"
+       placeholder="Quantity"
+       required>
+
+<input type="file"
+       name="file"
+       required>
+
+<textarea name="instructions"
+          placeholder="Special Instructions"
+          required></textarea>
+
+<button type="submit">Submit Order</button>
+</form>
+<script>
+function showCustomJob() {
+    var job = document.getElementById("jobType").value;
+    var custom = document.getElementById("customJobDiv");
+
+    if (job === "Custom") {
+        custom.style.display = "block";
+    } else {
+        custom.style.display = "none";
+
+        // clear input when hidden (important fix)
+        const input = custom.querySelector("input");
+        if (input) input.value = "";
+    }
+}
+</script>
+</div>
+
+<div class="card">
+<h2>Contact</h2>
+<p>📞 9080565004</p>
+<p>📧 achudigital.web@gmail.com</p>
+<p>📷 Instagram: @achu_digital_printers</p>
+</div>
+
+</div>
+
+<footer>
+© Achu Digital Printers
+</footer>
+
+</body>
+</html>
