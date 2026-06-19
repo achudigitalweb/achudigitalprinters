@@ -53,11 +53,7 @@ Custom Job: {custom_job}
             subtype="octet-stream",
             filename=filename
         )
-    server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-    server.login(
-        "achudigital.web@gmail.com",
-        "fmhy gtfp ihgu fcjb"  
-    )
+    print("Order received")
     server.send_message(msg)
     server.quit()
     return "Order submitted successfully ✅"
